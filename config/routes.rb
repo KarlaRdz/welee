@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :users_admin, :controller => 'users'
  
 
- #devise_for :users,controllers: { registrations: "registrations", sessions: "sessions"}
+ devise_for :users,controllers: { registrations: "registrations", sessions: "sessions"}
 
-devise_for :users,controllers: { sessions: "sessions"}
+#devise_for :users,controllers: { sessions: "sessions"}
 
 
 # se agrega esta linea para que siempre lo mande al login cado no esté resgistrado
