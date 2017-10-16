@@ -5674,3 +5674,113 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 38ms (Views: 35.1ms | ActiveRecord: 0.4ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK(4208695168962726540, 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateAnimalcats (20171016205925)
+  [1m[35m (22.7ms)[0m  [1m[35mCREATE TABLE `animalcats` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `video` varchar(255), `active` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016205925')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArticlecats (20171016205932)
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE `articlecats` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `video` varchar(255), `active` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016205932')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnimals (20171016205938)
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE `animals` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `latinName` varchar(255), `weight` float, `size` float, `price` decimal, `description` varchar(255), `sex` varchar(255), `typeani` int, `observations` varchar(255), `linkfb` varchar(255), `animalcat_id` int, `active` int, `photo` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE  INDEX `index_animals_on_animalcat_id`  ON `animals` (`animalcat_id`) [0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016205938')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArticles (20171016205943)
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE `articles` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `description` varchar(255), `price` decimal, `animal_id` int, `articlecat_id` int, `active` int, `photo` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE  INDEX `index_articles_on_animal_id`  ON `articles` (`animal_id`) [0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE  INDEX `index_articles_on_articlecat_id`  ON `articles` (`articlecat_id`) [0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016205943')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCoincidences (20171016205950)
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE `coincidences` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `animal_id` int, `consideration` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE  INDEX `index_coincidences_on_animal_id`  ON `coincidences` (`animal_id`) [0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016205950')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20171016205959)
+  [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE `questions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question` varchar(255), `order` int, `typeans` int, `active` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016205959')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20171016210003)
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE `answers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question_id` int, `answer` varchar(255), `active` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016210003')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTests (20171016210008)
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE `tests` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` int, `animal_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE  INDEX `index_tests_on_user_id`  ON `tests` (`user_id`) [0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE  INDEX `index_tests_on_animal_id`  ON `tests` (`animal_id`) [0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016210008')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateResults (20171016210014)
+  [1m[35m (17.7ms)[0m  [1m[35mCREATE TABLE `results` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `test_id` int, `answer_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE  INDEX `index_results_on_test_id`  ON `results` (`test_id`) [0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE  INDEX `index_results_on_answer_id`  ON `results` (`answer_id`) [0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171016210014')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK(4208695168962726540)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/animalcats" for 127.0.0.1 at 2017-10-16 16:08:12 -0500
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AnimalcatsController#index as HTML
+  Rendering animalcats/index.html.erb within layouts/application
+  [1m[36mAnimalcat Load (0.3ms)[0m  [1m[34mSELECT `animalcats`.* FROM `animalcats`[0m
+  Rendered animalcats/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 365ms (Views: 349.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/animalcats/3/edit" for 127.0.0.1 at 2017-10-16 16:08:15 -0500
+Processing by AnimalcatsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAnimalcat Load (0.4ms)[0m  [1m[34mSELECT  `animalcats`.* FROM `animalcats` WHERE `animalcats`.`id` = 3 LIMIT 1[0m
+  Rendering animalcats/edit.html.erb within layouts/application
+  Rendered animalcats/_form.html.erb (14.4ms)
+  Rendered animalcats/edit.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 63ms (Views: 55.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/animalcats/3" for 127.0.0.1 at 2017-10-16 16:08:18 -0500
+Processing by AnimalcatsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lIi89AMLJrudZRqCko0Tg1xzkZgnqiPSzb9xSbeqLmyGHsJf6aprRtUN2uZvbI7lPo7HuDyXtCw4Cn+P5+OgJw==", "animalcat"=>{"name"=>"Grounders", "video"=>"sasddasd", "active"=>"1"}, "commit"=>"Update Animalcat", "id"=>"3"}
+  [1m[36mAnimalcat Load (1.1ms)[0m  [1m[34mSELECT  `animalcats`.* FROM `animalcats` WHERE `animalcats`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `animalcats` SET `video` = 'sasddasd', `updated_at` = '2017-10-16 21:08:18' WHERE `animalcats`.`id` = 3[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/animalcats/3
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/animalcats/3" for 127.0.0.1 at 2017-10-16 16:08:18 -0500
+Processing by AnimalcatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAnimalcat Load (0.3ms)[0m  [1m[34mSELECT  `animalcats`.* FROM `animalcats` WHERE `animalcats`.`id` = 3 LIMIT 1[0m
+  Rendering animalcats/show.html.erb within layouts/application
+  Rendered animalcats/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/animalcats" for 127.0.0.1 at 2017-10-16 16:08:20 -0500
+Processing by AnimalcatsController#index as HTML
+  Rendering animalcats/index.html.erb within layouts/application
+  [1m[36mAnimalcat Load (0.9ms)[0m  [1m[34mSELECT `animalcats`.* FROM `animalcats`[0m
+  Rendered animalcats/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 53ms (Views: 47.6ms | ActiveRecord: 0.9ms)
+
+
