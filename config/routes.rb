@@ -21,7 +21,10 @@ Rails.application.routes.draw do
 
  patch 'users_admin/:id/edit' => 'users#update' , as: 'users_edit'
 
-#devise_for :users,controllers: { sessions: "sessions"}
+ get '/animalcats/:id/showAnimalsCat' => 'animalcats#showAnimalsCat', as: 'showAnimalsCat'
+  
+get '/articlecats/:id/showArticlesCat' => 'articlecats#showArticlesCat', as: 'showArticlesCat'
+
 
 
 # se agrega esta linea para que siempre lo mande al login cado no esté resgistrado

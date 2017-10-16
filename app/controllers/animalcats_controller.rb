@@ -1,5 +1,15 @@
 class AnimalcatsController < ApplicationController
-  before_action :set_animalcat, only: [:show, :edit, :update, :destroy]
+  before_action :set_animalcat, only: [:show, :edit, :update, :destroy, :showAnimalsCat]
+  skip_before_action :verify_authenticity_token
+
+  ## GET /animalcats/:id/showAnimalsCat.json
+  def showAnimalsCat
+    @animals_from_cat = Animal.select("animals.id,animals.name").where("animals.animalcat_id = ? ", @animalcat)
+    respond_to do |format|
+      #format.html
+      format.json { render json: @animals_from_cat }
+    end
+  end
 
   # GET /animalcats
   # GET /animalcats.json
