@@ -6295,3 +6295,157 @@ Processing by ArticlecatsController#showArticlesCat as JSON
 Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/users" for 127.0.0.1 at 2017-10-17 21:31:38 -0500
+  [1m[35m (8.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users_admin" for 127.0.0.1 at 2017-10-17 21:31:42 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 348ms (Views: 337.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/users_admin" for 127.0.0.1 at 2017-10-17 21:36:18 -0500
+Processing by UsersController#index as */*
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 72ms (Views: 58.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users_admin.json" for 127.0.0.1 at 2017-10-17 21:36:26 -0500
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/_user.json.jbuilder (130.4ms)
+  Rendered users/index.json.jbuilder (136.3ms)
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_url' for #<#<Class:0x00007fd93037fe18>:0x00007fd9306cbf90>):
+    1: json.extract! user, :id, :name, :lastName, :phone, :typeu, :street, :exterior_number, :interior_number, :city, :state, :zip, :created_at, :updated_at
+    2: json.url user_url(user, format: :json)
+  
+app/views/users/_user.json.jbuilder:2:in `_app_views_users__user_json_jbuilder___3739483162370985306_70285440869840'
+app/views/users/index.json.jbuilder:1:in `_app_views_users_index_json_jbuilder__2866778947120800217_70285441000720'
+Started GET "/users_admin" for 127.0.0.1 at 2017-10-17 21:36:42 -0500
+Processing by UsersController#index as */*
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 96ms (Views: 81.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users_admin.json" for 127.0.0.1 at 2017-10-17 21:37:12 -0500
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/_user.json.jbuilder (110.2ms)
+  Rendered users/index.json.jbuilder (112.6ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_url' for #<#<Class:0x00007fd93037fe18>:0x00007fd932259be0>):
+    1: json.extract! user, :id, :name, :lastName, :phone, :typeu, :street, :exterior_number, :interior_number, :city, :state, :zip, :created_at, :updated_at
+    2: json.url user_url(user, format: :json)
+  
+app/views/users/_user.json.jbuilder:2:in `_app_views_users__user_json_jbuilder___3739483162370985306_70285401300400'
+app/views/users/index.json.jbuilder:1:in `_app_views_users_index_json_jbuilder__2866778947120800217_70285412979420'
+Started GET "/users_admin.json" for 127.0.0.1 at 2017-10-17 21:38:46 -0500
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/_user.json.jbuilder (143.0ms)
+  Rendered users/index.json.jbuilder (145.5ms)
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_admin_url' for #<#<Class:0x00007fd93037fe18>:0x00007fd9355dad98>):
+    1: json.extract! user, :id, :name, :lastName, :phone, :typeu, :street, :exterior_number, :interior_number, :city, :state, :zip, :created_at, :updated_at
+    2: json.url user_admin_url(user, format: :json)
+  
+app/views/users/_user.json.jbuilder:2:in `_app_views_users__user_json_jbuilder___3739483162370985306_70285440272240'
+app/views/users/index.json.jbuilder:1:in `_app_views_users_index_json_jbuilder__2866778947120800217_70285400695640'
+Started GET "/users_admin.json" for 127.0.0.1 at 2017-10-17 21:39:01 -0500
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/_user.json.jbuilder (113.2ms)
+  Rendered users/index.json.jbuilder (115.5ms)
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_admin' for #<#<Class:0x00007fd93037fe18>:0x00007fd93219ddf0>):
+    1: json.extract! user, :id, :name, :lastName, :phone, :typeu, :street, :exterior_number, :interior_number, :city, :state, :zip, :created_at, :updated_at
+    2: json.url user_admin_url(user_admin, format: :json)
+  
+app/views/users/_user.json.jbuilder:2:in `_app_views_users__user_json_jbuilder___3739483162370985306_70285449887120'
+app/views/users/index.json.jbuilder:1:in `_app_views_users_index_json_jbuilder__2866778947120800217_70285412594660'
+Started GET "/users_admin.json" for 127.0.0.1 at 2017-10-17 21:39:14 -0500
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/_user.json.jbuilder (108.1ms)
+  Rendered users/index.json.jbuilder (110.7ms)
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_url' for #<#<Class:0x00007fd93037fe18>:0x00007fd9370994b8>):
+    1: json.extract! user, :id, :name, :lastName, :phone, :typeu, :street, :exterior_number, :interior_number, :city, :state, :zip, :created_at, :updated_at
+    2: json.url user_url(user, format: :json)
+  
+app/views/users/_user.json.jbuilder:2:in `_app_views_users__user_json_jbuilder___3739483162370985306_70285412726780'
+app/views/users/index.json.jbuilder:1:in `_app_views_users_index_json_jbuilder__2866778947120800217_70285454004040'
+Started GET "/users_admin.json" for 127.0.0.1 at 2017-10-17 21:40:39 -0500
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/_user.json.jbuilder (1.3ms)
+  Rendered users/_user.json.jbuilder (0.3ms)
+  Rendered users/_user.json.jbuilder (0.3ms)
+  Rendered users/_user.json.jbuilder (0.3ms)
+  Rendered users/_user.json.jbuilder (0.3ms)
+  Rendered users/_user.json.jbuilder (0.3ms)
+  Rendered users/_user.json.jbuilder (0.3ms)
+  Rendered users/index.json.jbuilder (48.9ms)
+Completed 200 OK in 70ms (Views: 58.0ms | ActiveRecord: 2.9ms)
+
+
